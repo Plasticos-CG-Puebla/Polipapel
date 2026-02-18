@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* 1. COMPORTAMIENTO DE SCROLL SUAVE */
+        /* ==========================================
+           ESTILOS BASE / ORDENADOR (INTACTOS)
+           ========================================== */
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 110px;
@@ -293,7 +295,9 @@
             100% { box-shadow: 0 0 0 0 rgba(20, 134, 187, 0); }
         }
 
-        /* AJUSTES PARA MÓVIL (ÚNICA PARTE MODIFICADA) */
+        /* ==========================================
+           AJUSTES EXCLUSIVOS PARA MÓVIL (MODIFICADO)
+           ========================================== */
         @media (max-width: 768px) {
             * { box-sizing: border-box; }
             body { padding-top: 220px; }
@@ -324,11 +328,11 @@
                 padding: 15px;
             }
 
-            /* AJUSTE SOLICITADO: TÍTULO ARRIBA, LOGO ABAJO, CENTRADOS Y PEGADOS */
+            /* AJUSTE SOLICITADO: LOGO MÁS GRANDE Y MENOS ESPACIO */
             .contenedor-titulo-bread {
                 flex-direction: column; 
-                gap: 5px; 
-                margin-bottom: 10px;
+                gap: 2px; /* Espacio mínimo entre título y logo */
+                margin-bottom: 2px; /* Espacio mínimo entre logo y tabla */
             }
 
             .contenedor-titulo-bread h1 {
@@ -338,7 +342,7 @@
             }
 
             .logo-bread-animado {
-                height: 130px; /* Tamaño ajustado para móvil */
+                height: 165px; /* Logo más grande en móvil (antes 130px) */
                 margin: 0;
             }
 
@@ -353,7 +357,7 @@
                 overflow-x: auto; 
                 -webkit-overflow-scrolling: touch;
                 white-space: nowrap; 
-                margin-top: 5px; /* Pega la tabla al logo */
+                margin-top: 0px; /* Tabla pegada al logo bread */
             }
 
             .celda-imagenes {
@@ -418,7 +422,7 @@
 
     <div id="especificaciones" class="container">
         <div class="contenedor-titulo-bread">
-            <h1 style="color: rgb(0, 0, 0);">Especificaciones Técnicas Marca</h1>
+            <h1 style="margin: 0; color: rgb(0, 0, 0);">Especificaciones Técnicas Marca</h1>
             <img src="LogoBread.png" alt="Logo Bread" class="logo-bread-animado">
         </div>
 
