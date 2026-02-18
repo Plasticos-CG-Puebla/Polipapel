@@ -234,7 +234,6 @@
 
         .btn-whatsapp:hover { transform: scale(1.1); }
 
-        /* Estilo base para botones en sección contacto */
         .btn-contacto-wsp, .btn-correo {
             display: inline-flex;
             align-items: center;
@@ -249,7 +248,6 @@
             gap: 15px; 
         }
 
-        /* WhatsApp Específico */
         .btn-contacto-wsp {
             background-color: #25d366;
             animation: pulse-green 2s infinite; 
@@ -266,14 +264,13 @@
             transform: scale(1.05);
         }
 
-        /* Correo Específico */
         .btn-correo {
             background-color: #1486bb;
-            animation: pulse-blue 2s infinite; /* Pulso azul */
+            animation: pulse-blue 2s infinite; 
         }
 
         .icono-mail {
-            font-size: 45px; /* Tamaño igualado al de WA */
+            font-size: 45px; 
         }
 
         .btn-correo:hover {
@@ -281,7 +278,6 @@
             transform: scale(1.05);
         }
 
-        /* --- ANIMACIONES DE PULSO --- */
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -292,6 +288,52 @@
             0% { box-shadow: 0 0 0 0 rgba(20, 134, 187, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(20, 134, 187, 0); }
             100% { box-shadow: 0 0 0 0 rgba(20, 134, 187, 0); }
+        }
+
+        /* AJUSTES PARA MÓVIL (NUEVO) */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+            .enlaces {
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .enlaces a {
+                margin: 5px 10px;
+                font-size: 0.9rem;
+            }
+            .nombre-barra {
+                font-size: 1.1rem;
+            }
+            #inicio img {
+                max-width: 90%;
+            }
+            .tarjeta {
+                width: 100%;
+            }
+            .contenedor-titulo-bread {
+                flex-direction: column;
+            }
+            .logo-bread-animado {
+                height: 100px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            .celda-imagenes {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .btn-whatsapp {
+                width: 70px;
+                height: 70px;
+            }
         }
 
     </style>
