@@ -291,50 +291,58 @@
         }
 
         /* AJUSTES PARA MÓVIL (NUEVO) */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                height: auto;
-                padding: 10px;
-            }
-            .enlaces {
-                margin-top: 10px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .enlaces a {
-                margin: 5px 10px;
-                font-size: 0.9rem;
-            }
-            .nombre-barra {
-                font-size: 1.1rem;
-            }
-            #inicio img {
-                max-width: 90%;
-            }
-            .tarjeta {
-                width: 100%;
-            }
-            .contenedor-titulo-bread {
-                flex-direction: column;
-            }
-            .logo-bread-animado {
-                height: 100px;
-            }
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-            .celda-imagenes {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .btn-whatsapp {
-                width: 70px;
-                height: 70px;
-            }
-        }
+/* AJUSTES PARA MÓVIL MEJORADOS */
+@media (max-width: 768px) {
+    * { box-sizing: border-box; } /* Evita que los elementos se desborden */
+
+    body { padding-top: 140px; } /* Más espacio arriba para que el menú no tape el logo */
+
+    nav {
+        flex-direction: column;
+        width: 95%;
+        padding: 15px 5px;
+    }
+
+    .nombre-barra {
+        font-size: 1rem;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .enlaces a {
+        margin: 5px;
+        font-size: 0.85rem;
+    }
+
+    #inicio img {
+        max-width: 95%; /* Logo principal más grande en celular */
+    }
+
+    .tarjeta {
+        width: 95%;
+        padding: 15px;
+    }
+
+    /* La tabla ahora es totalmente deslizable para no romper el diseño */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .img-producto {
+        width: 120px; /* Fotos más pequeñas para que quepan en la tabla */
+        height: 90px;
+    }
+
+    .btn-contacto-wsp, .btn-correo {
+        font-size: 1rem;
+        padding: 12px 20px;
+        width: 90%;
+        justify-content: center;
+    }
+}
 
     </style>
 </head>
