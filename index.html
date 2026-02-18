@@ -329,26 +329,25 @@
             }
 
             /* AJUSTE SOLICITADO: LOGO MÁS GRANDE Y MENOS ESPACIO */
+            /* AJUSTE FINAL: LOGO PEGADO AL TEXTO Y TABLA */
             .contenedor-titulo-bread {
                 flex-direction: column; 
-                gap: 10px; /* Espacio mínimo entre título y logo */
-                margin-bottom: 2px; /* Espacio mínimo entre logo y tabla */
+                gap: 0px !important; /* Elimina espacio entre letras y logo */
+                margin-bottom: 0px !important;
             }
 
             .contenedor-titulo-bread h1 {
                 text-align: center;
-                margin: 0; 
-                width: 100%;
+                margin: 0 !important;
+                padding: 0 !important;
+                line-height: 1.2;
             }
 
             .logo-bread-animado {
-                height: 200px; /* Logo más grande en móvil (antes 130px) */
-                margin: 0;
-            }
-
-            .container {
-                padding: 20px 10px;
-                overflow-x: hidden;
+                height: 220px; /* Logo más grande */
+                margin-top: -30px !important; /* Sube el logo para pegarlo a las letras */
+                margin-bottom: -35px !important; /* Sube la tabla para pegarla al logo */
+                display: block;
             }
 
             table {
@@ -357,7 +356,7 @@
                 overflow-x: auto; 
                 -webkit-overflow-scrolling: touch;
                 white-space: nowrap; 
-                margin-top: 0px; /* Tabla pegada al logo bread */
+                margin-top: 0px !important; /* Tabla pegada al logo */
             }
 
             .celda-imagenes {
@@ -501,4 +500,4 @@
         }
     </script>
 </body>
-</html>
+</html
