@@ -324,7 +324,24 @@
                 padding: 15px;
             }
 
-            /* SOLUCIÓN TABLA: Permite scroll interno sin ensanchar la página */
+            /* AJUSTE SOLICITADO: TÍTULO ARRIBA, LOGO ABAJO, CENTRADOS Y PEGADOS */
+            .contenedor-titulo-bread {
+                flex-direction: column; 
+                gap: 5px; 
+                margin-bottom: 10px;
+            }
+
+            .contenedor-titulo-bread h1 {
+                text-align: center;
+                margin: 0; 
+                width: 100%;
+            }
+
+            .logo-bread-animado {
+                height: 130px; /* Tamaño ajustado para móvil */
+                margin: 0;
+            }
+
             .container {
                 padding: 20px 10px;
                 overflow-x: hidden;
@@ -333,9 +350,10 @@
             table {
                 display: block;
                 width: 100%;
-                overflow-x: auto; /* Aquí se crea el scroll interno */
+                overflow-x: auto; 
                 -webkit-overflow-scrolling: touch;
-                white-space: nowrap; /* Evita que el texto se amontone en celdas */
+                white-space: nowrap; 
+                margin-top: 5px; /* Pega la tabla al logo */
             }
 
             .celda-imagenes {
@@ -400,7 +418,7 @@
 
     <div id="especificaciones" class="container">
         <div class="contenedor-titulo-bread">
-            <h1 style="margin: 0; color: rgb(0, 0, 0);">Especificaciones Técnicas Marca</h1>
+            <h1 style="color: rgb(0, 0, 0);">Especificaciones Técnicas Marca</h1>
             <img src="LogoBread.png" alt="Logo Bread" class="logo-bread-animado">
         </div>
 
