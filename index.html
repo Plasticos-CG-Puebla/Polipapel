@@ -24,7 +24,6 @@
             background-attachment: fixed;
             color: #333;
             padding-top: 100px; 
-            overflow-x: hidden; /* Evita rebote lateral */
         }
 
         nav {
@@ -127,18 +126,13 @@
             z-index: 10;
         }
 
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto; /* Contenedor especial para la tabla */
-            border-radius: 15px;
-            margin: 25px 0;
-        }
-
         table { 
             width: 100%; 
             border-collapse: collapse; 
+            margin: 25px 0; 
             background-color: rgba(123, 120, 120, 0.95); 
-            min-width: 600px; /* Asegura que no se aplaste en móvil */
+            border-radius: 15px;
+            overflow: hidden;
         }
 
         th { 
@@ -147,12 +141,13 @@
             padding: 15px; 
             font-size: 1.2rem; 
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         td { 
             padding: 18px; 
             border: 1px solid #ccc; 
-            font-size: 1.1rem; 
+            font-size: 1.25rem; 
             color: #1a1a1a; 
             font-weight: 600; 
         }
@@ -161,13 +156,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-wrap: nowrap;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
         .logo-bread-animado {
-            height: 150px; 
+            height: 180px; 
             width: auto;
             animation: brilloEspecial 3s infinite ease-in-out;
         }
@@ -181,19 +176,22 @@
         .celda-imagenes {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 25px;
         }
 
         .img-producto {
-            width: 120px;
-            height: 90px;
+            width: 180px;
+            height: 130px;
             object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .img-producto:hover { transform: scale(1.1); }
+        .img-producto:hover {
+            transform: scale(1.1);
+            border: 2px solid #1486bb;
+        }
 
         .visor-fondo {
             display: none;
@@ -204,6 +202,7 @@
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
+            cursor: zoom-out;
         }
 
         .imagen-grande {
@@ -213,62 +212,121 @@
             border-radius: 10px;
         }
 
-        /* --- BOTONES --- */
+        /* --- BOTONES CONTACTO --- */
         .btn-whatsapp {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             z-index: 2000;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .btn-whatsapp img { width: 100%; height: 100%; object-fit: contain; }
+        .btn-whatsapp img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .btn-whatsapp:hover { transform: scale(1.1); }
 
         .btn-contacto-wsp, .btn-correo {
             display: inline-flex;
             align-items: center;
             color: white;
-            padding: 15px 30px; 
+            padding: 15px 40px; 
             border-radius: 60px;
             text-decoration: none;
             font-weight: bold;
-            margin: 10px; 
+            font-size: 1.3rem; 
+            margin: 15px; 
             transition: 0.3s;
-            gap: 10px; 
+            gap: 15px; 
         }
 
-        .btn-contacto-wsp { background-color: #25d366; }
-        .btn-correo { background-color: #1486bb; }
+        .btn-contacto-wsp {
+            background-color: #25d366;
+            animation: pulse-green 2s infinite; 
+        }
 
-        /* --- MEDIA QUERY MÓVIL --- */
+        .btn-contacto-wsp img {
+            width: 45px; 
+            height: 45px; 
+            object-fit: contain;
+        }
+
+        .btn-contacto-wsp:hover { 
+            background-color: #128c7e; 
+            transform: scale(1.05);
+        }
+
+        .btn-correo {
+            background-color: #1486bb;
+            animation: pulse-blue 2s infinite; 
+        }
+
+        .icono-mail {
+            font-size: 45px; 
+        }
+
+        .btn-correo:hover {
+            background-color: #0d5e85;
+            transform: scale(1.05);
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(20, 134, 187, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(20, 134, 187, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(20, 134, 187, 0); }
+        }
+
+        /* --- AJUSTES EXCLUSIVOS PARA MÓVIL SIN PERDER TAMAÑOS --- */
         @media (max-width: 768px) {
-            body { padding-top: 130px; }
-            
             nav {
                 flex-direction: column;
-                padding: 10px;
-                width: 95%;
+                padding: 15px 5px;
             }
-
-            .nombre-barra { font-size: 1rem; margin-left: 0; margin-top: 5px; }
-
-            .enlaces { margin-top: 8px; }
-            .enlaces a { margin: 0 8px; font-size: 0.85rem; }
-
-            #inicio { margin-top: 0; margin-bottom: -50px; }
-            #inicio img { max-width: 85%; }
-
-            .beneficios { margin-top: 80px; }
-            
-            .logo-bread-animado { height: 100px; }
-            
-            .btn-contacto-wsp, .btn-correo {
+            .enlaces {
+                margin-top: 10px;
+            }
+            .enlaces a {
+                margin: 0 8px;
+                font-size: 1rem;
+            }
+            #inicio {
+                margin-top: 20px; /* Evita que el logo flotante choque con el menú */
+                margin-bottom: -80px;
+            }
+            #inicio img {
+                max-width: 90%;
+            }
+            .tarjeta {
                 width: 90%;
-                justify-content: center;
+            }
+            /* Solo permitimos que la tabla se deslice, sin cambiar el tamaño de su contenido */
+            .container {
+                overflow-x: auto;
+                padding: 20px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            .contenedor-titulo-bread {
+                flex-wrap: wrap; /* Permite que el logo bread se acomode si no hay espacio */
             }
         }
+
     </style>
 </head>
 <body>
@@ -292,7 +350,7 @@
     </nav>
 
     <div id="inicio">
-        <img src="Logo.png" alt="Logo Principal">
+        <img src="Logo.png" alt="Hoja de Polipapel">
     </div>
 
     <section id="beneficios" class="beneficios">
@@ -315,61 +373,67 @@
 
     <div id="especificaciones" class="container">
         <div class="contenedor-titulo-bread">
-            <h1 style="margin: 0; color: #000;">Especificaciones Técnicas</h1>
+            <h1 style="margin: 0; color: rgb(0, 0, 0);">Especificaciones Técnicas Marca</h1>
             <img src="LogoBread.png" alt="Logo Bread" class="logo-bread-animado">
         </div>
 
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Visualización</th>
-                        <th>Medida</th>
-                        <th>Ancho Real</th>
-                        <th>Largo Real</th>
-                        <th>Gramaje</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="celda-imagenes">
-                            <img src="Poli1.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 1">
-                            <img src="Poli3.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 3">
-                        </td>
-                        <td>25 x 35 cm</td>
-                        <td>26 ± 1 cm</td>
-                        <td>36 ± 1 cm</td>
-                        <td>1.3 ± 0.1</td>
-                    </tr>
-                    <tr>
-                        <td class="celda-imagenes">
-                            <img src="Poli2.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 2">
-                            <img src="Poli3.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 3">
-                        </td>
-                        <td>30 x 40 cm</td>
-                        <td>31 ± 1 cm</td>
-                        <td>41 ± 1 cm</td>
-                        <td>1.8 ± 0.1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Visualización</th>
+                    <th>Medida</th>
+                    <th>Ancho Real</th>
+                    <th>Largo Real</th>
+                    <th>Gramaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="celda-imagenes">
+                        <img src="Poli1.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 25x35">
+                        <img src="Poli3.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 25x35">
+                    </td>
+                    <td>25 x 35 cm</td>
+                    <td>26 ± 1 cm</td>
+                    <td>36 ± 1 cm</td>
+                    <td>1.3 ± 0.1</td>
+                </tr>
+                <tr>
+                    <td class="celda-imagenes">
+                        <img src="Poli2.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 30x40">
+                        <img src="Poli3.png" class="img-producto" onclick="abrirImagen(this)" alt="Poli 30x40">
+                    </td>
+                    <td>30 x 40 cm</td>
+                    <td>31 ± 1 cm</td>
+                    <td>41 ± 1 cm</td>
+                    <td>1.8 ± 0.1</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <div style="text-align: left; margin-top: 30px;">
-            <h2 style="color: #000;">Personalizamos tu marca</h2>
-            <p style="color: #ffffff;">Fabricado bajo los más altos estándares en <strong>Puebla</strong>.</p>
+        <div style="text-align: left; margin-top: 40px;">
+            <h2 style="color: #000000;">Personalizamos tu marca Compromiso CG Plásticos</h2>
+            <p style="color: #ffffff;">Fabricado bajo los más altos estándares en <strong>Puebla</strong>, asegurando que cada hoja de polipapel sea la mejor solución para tu negocio.</p>
         </div>
     </div>
 
-    <div id="seccion-contacto" style="padding: 60px 20px; background-color: rgba(255, 255, 255, 0.9); text-align: center;">
-        <h2 style="color: #1486bb;">¿Necesitas una cotización?</h2>
-        <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+    <div id="seccion-contacto" style="padding: 100px 20px; background-color: rgba(255, 255, 255, 0.9); text-align: center;">
+        <h2 style="color: #1486bb;">¿Necesitas una cotización inmediata?</h2>
+        <p>Contáctanos a través de cualquiera de nuestros canales oficiales.</p>
+        
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
             <a href="https://wa.me/522221399771" class="btn-contacto-wsp" target="_blank">
-                <img src="whats.png" alt="WA" width="30"> WhatsApp
+                <img src="whats.png" alt="Icono WA">
+                Contáctanos por WhatsApp
             </a>
-            <a href="mailto:cghojasdepolipapel@gmail.com" class="btn-correo">📧 Correo</a>
+
+            <a href="mailto:cghojasdepolipapel@gmail.com" class="btn-correo">
+                <span class="icono-mail">📧</span>
+                Enviar Correo
+            </a>
         </div>
-        <p><strong>📍 Plásticos CG de Puebla</strong></p>
+        
+        <p style="margin-top: 30px;"><strong>📍 Plásticos CG de Puebla</strong></p>
     </div>
 
     <div id="visor" class="visor-fondo" onclick="cerrarImagen()">
@@ -378,8 +442,10 @@
 
     <script>
         function abrirImagen(elemento) {
-            document.getElementById("imgVisor").src = elemento.src;
-            document.getElementById("visor").style.display = "flex";
+            var visor = document.getElementById("visor");
+            var imgGrande = document.getElementById("imgVisor");
+            imgGrande.src = elemento.src;
+            visor.style.display = "flex";
         }
         function cerrarImagen() {
             document.getElementById("visor").style.display = "none";
