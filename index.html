@@ -302,16 +302,16 @@
             * { box-sizing: border-box; }
             body { padding-top: 220px; }
 
-            nav {
+           nav {
                 flex-direction: column;
                 width: 95%;
-                padding: 15px 5px;
+                padding: 25px 5px; /* Aumentado de 15px a 25px para dar espacio arriba y abajo */
             }
 
             .nombre-barra {
                 font-size: 1rem;
                 text-align: center;
-                margin: 5px 0;
+                margin: 12px 0; /* Aumentado de 5px a 12px para separar el texto de los bordes */
             }
 
             .enlaces a {
@@ -329,25 +329,26 @@
             }
 
             /* AJUSTE SOLICITADO: LOGO MÁS GRANDE Y MENOS ESPACIO */
-            /* AJUSTE FINAL: LOGO PEGADO AL TEXTO Y TABLA */
             .contenedor-titulo-bread {
                 flex-direction: column; 
-                gap: 0px !important; /* Elimina espacio entre letras y logo */
-                margin-bottom: 0px !important;
+                gap: 0px; /* Espacio mínimo entre título y logo */
+                margin-bottom: 2px; /* Espacio mínimo entre logo y tabla */
             }
 
             .contenedor-titulo-bread h1 {
                 text-align: center;
-                margin: 0 !important;
-                padding: 0 !important;
-                line-height: 1.2;
+                margin: 0; 
+                width: 100%;
             }
 
             .logo-bread-animado {
-                height: 220px; /* Logo más grande */
-                margin-top: -30px !important; /* Sube el logo para pegarlo a las letras */
-                margin-bottom: -35px !important; /* Sube la tabla para pegarla al logo */
-                display: block;
+                height: 200px; /* Logo más grande en móvil (antes 130px) */
+                margin: 0;
+            }
+
+            .container {
+                padding: 20px 10px;
+                overflow-x: hidden;
             }
 
             table {
@@ -356,7 +357,7 @@
                 overflow-x: auto; 
                 -webkit-overflow-scrolling: touch;
                 white-space: nowrap; 
-                margin-top: 0px !important; /* Tabla pegada al logo */
+                margin-top: 0px; /* Tabla pegada al logo bread */
             }
 
             .celda-imagenes {
